@@ -1,0 +1,4 @@
+
+public class JString extends String {
+
+}

@@ -1,0 +1,36 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
+public class Record {
+	Date date;
+	int importance;
+	String source;
+	
+	Record(int im, String a){
+	date=new Date();
+	importance=im;
+	source=a.replaceAll(" ", "");
+	}
+	public String toString(){
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
+		String dat = formatter.format(date);
+		String imp=null;
+		switch (importance) {
+		case 1:
+			imp=".    ";
+			break;
+		case 2:
+			imp="!    ";
+			break;
+		case 3:
+			imp="!!!  ";
+			break;
+		case 4:
+			imp="!!!!!";
+			break;
+		}
+		return dat+" "+imp+source;
+	}
+
+}

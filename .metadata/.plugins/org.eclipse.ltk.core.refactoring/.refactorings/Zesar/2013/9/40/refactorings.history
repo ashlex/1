@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Zesar/src/test.java&apos; to &apos;Window.java&apos;" description="Rename resource &apos;test.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/test.java" name="Window.java" stamp="1380520447070" updateReferences="true"/>
+</session>

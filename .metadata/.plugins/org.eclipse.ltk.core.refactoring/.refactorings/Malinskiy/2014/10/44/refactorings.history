@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;time1&apos; in &apos;Lab2.Lab2()&apos; to &apos;time&apos;&#x0D;&#x0A;- Original project: &apos;Malinskiy&apos;&#x0D;&#x0A;- Original element: &apos;Lab2.Lab2().time1&apos;&#x0D;&#x0A;- Renamed element: &apos;time1&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;time1&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Lab2.java[Lab2~Lab2@time1!1679!1707!1684!1688!J!0!false" name="time" references="true" stamp="1414549635882" version="1.0"/>
+</session>

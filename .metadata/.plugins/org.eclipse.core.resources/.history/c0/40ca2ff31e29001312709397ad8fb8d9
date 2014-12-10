@@ -1,0 +1,101 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+
+public class Window extends JFrame {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private static List<JLabel> labels = new ArrayList<JLabel>();
+
+	public Window() {
+		// TODO Auto-generated constructor stub
+		createGUI();
+	}
+
+	public static void createGUI() {
+
+		JFrame frame = new JFrame("Test frame");
+		frame.setPreferredSize(new Dimension(250, 200));
+
+		
+
+		/////////// Создание поля для ввода текста //////////////
+		JTextArea textArea = new JTextArea("Введите здесь свой текст");
+		
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
+		JScrollPane inPanel = new JScrollPane(textArea);
+		inPanel.setPreferredSize(new Dimension(WIDTH, 100));
+		inPanel.setOpaque(true);
+		inPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+		////////////////////////-END-////////////////////////////
+		
+		
+		JPanel butPanel = new JPanel();
+		JButton startButton = new JButton("Go");
+		startButton.setFocusable(false);
+		butPanel.setLayout(new FlowLayout());
+		butPanel.add(startButton);
+
+		
+		final JPanel outPanel=new JPanel();
+		outPanel.setPreferredSize(new Dimension(WIDTH, 100));
+		outPanel.setOpaque(true);
+		outPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+		
+
+		JPanel totalPane = new JPanel();
+		JScrollPane scrl=new JScrollPane(totalPane);
+		totalPane.setLayout(new BoxLayout(totalPane, BoxLayout.Y_AXIS));
+		final JTable tbl;
+		String[] header={"1","2"};
+		String[][] val={{"a","b"},{"c","d"}};
+		tbl=new JTable(val,header);
+		outPanel.add(tbl);
+		///////////////////ACTION//////////////////
+		startButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				System.out.print("123");
+				String[] header={"1","2"};
+				String[][] val={{"a","b"},{"c","d"}};
+				tbl=new JTable(val,header);
+				outPanel.add(tbl);
+			}
+		});
+		///////////////////-END-///////////////////
+		
+		totalPane.add(inPanel);
+		totalPane.add(butPanel);
+		totalPane.add(outPanel);
+
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.add(scrl);
+		frame.setPreferredSize(new Dimension(250, 200));
+		frame.pack();
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+	}
+
+}

@@ -1,0 +1,25 @@
+
+class a {
+	public static void main(String args[]){
+		b r=new b();
+		r.Scan();
+		r.i=calc1(r.i);
+		r.k=calc1(r.k);
+		r.Scan(r.i,r.k);
+	}
+	public static int calc1(int x){
+		x=x*x;
+		return(x);
+		
+	}
+	public static int calc2(int x){
+		x=x/x;
+		return(x);
+		
+	}
+	public static int calc3(int x){
+		x=x+x;
+		return(x);
+		
+	}
+}

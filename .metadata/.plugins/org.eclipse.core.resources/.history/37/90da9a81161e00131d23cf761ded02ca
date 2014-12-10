@@ -1,0 +1,19 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class Word {
+	String word;
+	public Word(String word) {
+		this.word=word;
+	}
+	public Map<Integer, String> toMapChar() {
+		Map<Integer , String> collection=new HashMap<>();
+		char[] str=this.word.toUpperCase().toCharArray();
+		for(char string: str){
+			collection.put(Arrays.asList(str).indexOf(string), string+"");
+		}
+		return collection;
+	}
+}

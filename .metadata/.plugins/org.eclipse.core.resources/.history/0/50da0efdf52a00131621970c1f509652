@@ -1,0 +1,251 @@
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.TableColumnModel;
+import javax.swing.table.TableModel;
+
+
+
+
+public class Window extends MyLayOut {
+	static JFrame jf=new JFrame();
+	final static JPanel totalPanel=new JPanel();
+	int xy[];
+	public Window() {
+		super(jf);
+		final Map<Integer, ArrayList<WordObj>> w=new TreeMap<>();
+		
+		System.out.println(jf.getWidth());
+		jf.setPreferredSize(new Dimension(400,500));
+		jf.setMinimumSize(new Dimension(400, 400));
+//		jf.setResizable(false);
+//		jf.setLayout(null);
+		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		System.out.println(jf.getWidth());
+		jf.setVisible(true);
+		
+		totalPanel.setLayout(null);
+		
+		
+		
+		final JPanel Panel[] = new JPanel[3];
+		
+		Panel[0]=new JPanel();
+		Panel[0].setLayout(new GridLayout());
+		Panel[0].setOpaque(true);
+		Panel[0].setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLUE), "Текст для обработки"));
+		Panel[0].setSize(setFullDisplay(100));
+		Panel[0].setLocation(5, 5);
+		final JTextArea inText=new JTextArea();
+		inText.setWrapStyleWord(true);
+		inText.setLineWrap(true);
+		JScrollPane inTextScrol=new JScrollPane(inText);
+		Panel[0].add(inTextScrol);
+		
+		JButton goButton=new JButton("Go");
+		goButton.setSize(new Dimension(70, 20));
+		goButton.setLocation(location(Panel[0], 10));
+		
+		final JCheckBox chb[]=new JCheckBox[2];
+		chb[0]=new JCheckBox("Ё");
+		chb[0].setLocation(location(Panel[0], 80));
+		chb[0].setSize(35, 20);
+		chb[1]=new JCheckBox("Й");
+		chb[1].setLocation(location(Panel[0], 120));
+		chb[1].setSize(35, 20);
+
+
+		JButton test=new JButton("test");
+		test.setSize(new Dimension(70, 20));
+		test.setLocation(location(Panel[0], 170));
+//		chb[].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+//		chb[1].setLocation(location(goButton, 110, -5));
+		
+		Panel[1]=new JPanel();
+		Panel[1].setLayout(new GridLayout());
+		Panel[1].setOpaque(true);
+		Panel[1].setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLUE), "Таблица с обработанными результатами"));
+		Panel[1].setSize(setFullDisplay(200));
+		Panel[1].setLocation(location(goButton,-10));
+		final TableModel model = new MyTableModel(w);
+		final JTable outTable=new JTable(model);
+		outTable.setSelectionBackground(Color.orange);
+		outTable.setColumnSelectionAllowed(true);
+		outTable.setRowSelectionAllowed(true);
+//		outTable.setCellSelectionEnabled(true);
+		outTable.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+		
+		
+//		outTable.setPreferredScrollableViewportSize(new Dimension(400, 198));
+		JScrollPane tableScrl=new JScrollPane(outTable);
+		Panel[1].add(tableScrl);
+
+		Panel[2]=new JPanel();
+		Panel[2].setOpaque(true);
+		Panel[2].setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLUE), "Готовый текст"));
+		Panel[2].setSize(setFullDisplay(200));
+		Panel[2].setLocation(location(Panel[1]));
+		
+//		System.out.println(Panel[0].getLocation.x);
+//		System.out.println(Panel[1].getLocation());
+		totalPanel.add(Panel[0]);
+		totalPanel.add(goButton);
+		totalPanel.add(chb[0]);
+		totalPanel.add(chb[1]);
+		totalPanel.add(test);
+		totalPanel.add(Panel[1]);
+		totalPanel.add(Panel[2]);
+		
+		
+//		System.out.println(totalPanel.getComponent(totalPanel.getComponentCount()-1).getLocation().y+totalPanel.getComponent(totalPanel.getComponentCount()-1).getHeight());
+		totalPanel.setPreferredSize(new Dimension(jf.getWidth()-35,totalPanel.getComponent(totalPanel.getComponentCount()-1).getLocation().y+totalPanel.getComponent(totalPanel.getComponentCount()-1).getHeight()));
+		System.out.println(totalPanel.getPreferredSize());
+		JScrollPane scrl=new JScrollPane(totalPanel);
+		jf.add(scrl);
+		
+//		final JPanel optionsPanel[]=new JPanel[3];
+//		optionsPanel[0]=new JPanel();
+//		optionsPanel[0].setOpaque(true);
+//		optionsPanel[0].setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLUE), "Готовый текст"));
+//		optionsPanel[0].setSize(setFullDisplay(200));
+//		optionsPanel[0].setLocation(location(Panel[2]));
+		
+
+//		optionsPanel[1]=new JPanel();
+//		optionsPanel[1].setOpaque(true);
+//		optionsPanel[1].setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLUE), "Наличие букв"));
+//		JCheckBox chb[]=new JCheckBox[2];
+//		optionsPanel[1].add(chb[0]);
+//		optionsPanel[1].add(chb[1]);
+//		optionsPanel[0].add(optionsPanel[1]);
+//		totalPanel.add(optionsPanel[0]);
+		
+		
+//		optionsPanel[2]=new JPanel();
+//		optionsPanel[2].setOpaque(true);
+//		optionsPanel[2].setBorder(BorderFactory.createTitledBorder(BorderFactory.createLineBorder(Color.BLUE), "Текст для обработки"));
+		
+		
+		
+		
+		jf.addComponentListener(new ComponentListener() {
+
+			
+			@Override
+			public void componentResized(ComponentEvent arg0) {
+				// TODO Auto-generated method stub
+				Component[] collection=totalPanel.getComponents();
+				for (int i=0;i<collection.length;i++) {
+					if(collection[i].getClass().getSimpleName().equalsIgnoreCase("JPanel")){
+//						System.out.println("SimpleName = "+collection[i].getClass().getSimpleName().length());
+					collection[i].setSize(setFullDisplay(collection[i].getHeight()));
+					}
+				}
+			}
+
+			@Override
+			public void componentHidden(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void componentMoved(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void componentShown(ComponentEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		goButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				int v=-1;
+				if(chb[0].isSelected()){
+					//если алфавит с Ё без Й
+					v=0;
+					if(chb[1].isSelected()){
+						//если алфавит с Ё и Й
+						v=2;
+					}
+				}else {
+					v=1;
+					if(chb[1].isSelected()){
+						//если алфавит с Й без Ё
+						v=3;
+					}
+				}
+				
+				System.out.println(v);
+				if(v!=-1){
+				Decoder d=new Decoder(inText.getText(), v);
+				w.clear();
+				w.putAll(d.getDecodeWord());
+				outTable.updateUI();
+				xy=new int[outTable.getRowCount()];
+				
+				}else{
+					JOptionPane.showMessageDialog(jf, "ERROR");
+					jf.dispose();
+				}
+			}
+		});
+		
+		ListSelectionListener ls=new ListSelectionListener() {
+			
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				// TODO Auto-generated method stub
+                System.out.println("row=" + outTable.getSelectedRow()+ " col="+outTable.getSelectedColumn());
+			}
+		};
+        outTable.getColumnModel().getSelectionModel().addListSelectionListener(ls);
+          
+        outTable.getSelectionModel().addListSelectionListener(ls);
+        test.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				for(int i=0;i<xy.length;i++){
+				System.out.println("xy"+i+" = "+xy[i]);
+				}
+			}
+		});
+		System.out.println(jf.getWidth());
+	}
+	
+}

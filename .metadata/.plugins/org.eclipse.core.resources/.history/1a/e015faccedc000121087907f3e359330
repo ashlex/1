@@ -1,0 +1,8 @@
+
+public class Journal {
+	public static void main(String[] args) {
+		Record re=new Record(3, "g h b d tn");
+		System.out.println(re);
+	}
+
+}

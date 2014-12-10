@@ -1,0 +1,18 @@
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+
+public class Record {
+	static String date;
+	static Date d=new Date();
+	public static void main(String[] args) {
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
+		date = formatter.format(d);
+		System.out.println(date);
+	}
+	public String toString(){
+		return date+"привет";
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;VAC/src/ElGamal/Code.java&apos; to &apos;CodeText.java&apos;" description="Rename resource &apos;Code.java&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/ElGamal/Code.java" name="CodeText.java" stamp="1399344397225" updateReferences="true"/>
+</session>

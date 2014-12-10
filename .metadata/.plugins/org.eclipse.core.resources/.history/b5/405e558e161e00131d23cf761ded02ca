@@ -1,0 +1,15 @@
+
+public class Main {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		Alphabet alphabet=new Alphabet();
+		System.out.println(alphabet);
+		Word word=new Word("Привет");
+		System.out.println(word.toMapChar());
+
+	}
+
+}

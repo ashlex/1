@@ -1,0 +1,19 @@
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+
+public class inv extends JFrame{
+	
+	inv(String s){
+		super(s);
+		
+	}
+	class control implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			
+		}
+	}
+	
+}

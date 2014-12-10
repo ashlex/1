@@ -1,0 +1,72 @@
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
+/**
+ * @author Alexej
+ *
+ */
+public class Word {
+	String word;
+	Alphabet alphabet = new Alphabet();
+//	Pattern pt;
+	/**
+	 * @param word
+	 */
+	public Word(String word) {
+		this.word = word;
+//		this.pt = Pattern.compile("(Р•Р­)|(Р­Р•)|([РђР•Р�РћРЈР«Р­Р®РЇ][РЄР¬])|(Р¦Р®)|([Р§Р©][РЇР®])|(^[Р™Р«РЄР¬].*)");
+	}
+
+	/**
+	 * @return Collection<Char>
+	 */
+	public Collection<Char> toCollectionChar() {
+		Collection<Char> collection = new ArrayList<>();
+		char[] str = this.word.toUpperCase().toCharArray();
+		for (char string : str) {
+				collection.add(new Char(alphabet.getByAlphabet(string + ""), string+""));
+		}
+		return collection;
+	}
+	
+	
+	/**
+	 * @param ID
+	 * @param key
+	 * @return WordObj(ID, value, key)
+	 */
+	public WordObj getNewWord(int ID ,int key) {
+		
+		Collection<Char> a=toCollectionChar();
+		String value="";
+		Iterator<Char> it=a.iterator();
+		while (it.hasNext()) {
+			Char strings = (Char) it.next();
+			if(strings.getKey()!=-1){
+				value+=alphabet.getByAlphabet(alphabet.mod(strings.getKey()+key));
+//				System.out.println(value);
+			}else{
+				value+=strings.getValue();
+			}
+			
+		}
+		
+        
+//        Matcher mt = pt.matcher(value);
+//        if (mt.find()) {
+//        	System.out.println("ERROR");
+//    		return null;
+//        } else {
+        	return new WordObj(ID, value, key);
+//        }
+	}
+	@Override
+	public String toString() {
+		
+		return super.toString();
+	}
+}

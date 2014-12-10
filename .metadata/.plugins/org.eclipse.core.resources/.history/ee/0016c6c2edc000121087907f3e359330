@@ -1,0 +1,18 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
+public class Record {
+	Date date;
+	int importance;
+	Record(int im){
+	date=new Date();
+	importance=im;
+	}
+	public String toString(){
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss ");
+		String dat = formatter.format(date);
+		return dat+"привет"+importance;
+	}
+
+}

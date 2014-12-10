@@ -1,0 +1,19 @@
+
+
+
+class  Factorial {
+	int fakt(int n){
+		int result;
+		if(n==1)return 1;
+		result=fakt(n-1)*n;
+		return result;
+	}
+}
+class Main{
+	public static void main(String args[]) { 
+			Factorial f=new Factorial(); 
+			System.out.println("Факториал 3 равен" + f.fakt(3)); 
+			System.out.println("Факториал 4 равен" + f.fakt(4)); 
+			System.out.println("Факториал 5 равен" + f.fakt(5));
+	}
+}

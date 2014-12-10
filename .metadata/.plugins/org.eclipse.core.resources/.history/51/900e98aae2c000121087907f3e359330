@@ -1,0 +1,23 @@
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+
+public class Record {
+	static String date;
+	static Calendar calend=GregorianCalendar.getInstance();
+	static Date d=new Date();
+	public static void main(String[] args) {
+		//move();
+		System.out.println(d);
+		System.out.println(date);
+		System.out.println(calend.getTimeZone());
+		
+
+	}
+	private static void move() {
+		calend.setTime(d);
+		date=calend.get(Calendar.YEAR)+" "+calend.get(Calendar.MONTH)+" "+calend.get(Calendar.DATE);
+	}
+
+}

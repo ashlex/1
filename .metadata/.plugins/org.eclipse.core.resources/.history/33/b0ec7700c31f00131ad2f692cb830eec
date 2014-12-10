@@ -1,0 +1,24 @@
+import java.util.Scanner;
+
+
+public class Menu {
+	String text;
+	Scanner input=new Scanner(System.in , "cp1251");
+	
+	public String setText() {
+		print("Введите текст:");
+		this.text=input.nextLine();
+		println(text);
+		return this.text;
+	}
+	public void print(String a) {
+		System.out.print(a);
+	}
+	public void println(String a) {
+		System.out.println(a);
+	}
+	private String toBinary() {
+		
+		return null;
+	}
+}

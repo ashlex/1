@@ -1,0 +1,20 @@
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+
+public class Word {
+	String word;
+	Alphabet alphabet=new Alphabet();
+	public Word(String word) {
+		this.word=word;
+	}
+	public Map<Integer, String> toMapChar() {
+		Map<Integer , String> collection=new HashMap<>();
+		char[] str=this.word.toUpperCase().toCharArray();
+		for(char string: str){
+			collection.put(alphabet.getIndexByAlphabet(string+""), string+"");
+		}
+		return collection;
+	}
+}

@@ -1,0 +1,19 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+
+public class Record {
+	static String date;
+	static Date d=new Date();
+	public static void main(String[] args) {
+SimpleDateFormat formatter = new SimpleDateFormat("MMMM-dd-yyyy HH");
+date = formatter.format(d);
+System.out.println(date);
+		
+
+	}
+
+}

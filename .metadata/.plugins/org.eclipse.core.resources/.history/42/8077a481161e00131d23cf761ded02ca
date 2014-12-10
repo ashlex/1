@@ -1,0 +1,14 @@
+import java.util.Map;
+import java.util.TreeMap;
+
+
+public class Alphabet {
+	Map<Integer, String> alphabet=new TreeMap<Integer, String>();
+	public Alphabet() {
+		for(int i=(int)'А';i<=(int)'Я';i++){
+			char V=(char)i;
+			String a=V+"";
+			this.alphabet.put(i-(int)'А'+1, a);
+		}
+	}
+}

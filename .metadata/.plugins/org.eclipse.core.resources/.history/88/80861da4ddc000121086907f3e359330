@@ -1,0 +1,21 @@
+import java.util.Calendar;
+import java.util.Date;
+
+
+public class Record {
+	static String date;
+	static Date d=new Date();
+	static Calendar calend=Calendar.getInstance();
+	public static void main(String[] args) {
+		move();
+		System.out.println(d);
+		System.out.println(date);
+		
+
+	}
+	private static void move() {
+		calend.setTime(d);
+		date=calend.get(Calendar.YEAR)+" "+calend.get(Calendar.MONTH)+" "+calend.get(Calendar.AM);
+	}
+
+}

@@ -1,0 +1,12 @@
+1379027815041	Convert local variable 'cc' to field
+1379246192396	Delete element
+1379246195208	Delete element
+1379246248481	Delete element
+1379246258567	Delete element
+1379256398805	Rename type 'Helper'
+1379260908587	Rename method 'getIndexByAlphabet'
+1379260983889	Rename method 'getKeyByAlphabet'
+1379279713205	Rename method 'getMapWord'
+1379280222015	Rename method 'toMapChar'
+1379280604982	Rename local variable 'it'
+1379287730840	Rename method 'getKey'

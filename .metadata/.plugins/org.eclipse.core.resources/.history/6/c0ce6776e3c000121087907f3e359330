@@ -1,0 +1,46 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
+
+public class Record {
+	static String date;
+	static Calendar calend=GregorianCalendar.getInstance();
+	static Date d=new Date();
+	public static void main(String[] args) {
+		move();
+		System.out.println(d);
+		System.out.println(date);
+		System.out.println(calend.getTime());
+		
+
+	}
+	private static void move() {        
+		try {
+
+        // преобразование строки в дату
+
+          SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+
+          String datestr = "29.07.2013 08:30:15";
+
+          Date date3 = dateFormat.parse(datestr);
+
+          System.out.println("ƒата: " + date3);
+
+         // преобразование даты в строку
+
+          SimpleDateFormat shortDateFormat = new SimpleDateFormat("dd.MM.yyyy");
+
+          String formatted = shortDateFormat.format(date3);
+
+          System.out.println("ƒата в коротком формате: " + formatted);
+
+      } catch (ParseException ex) {
+
+      }
+	}
+
+}

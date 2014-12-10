@@ -1,0 +1,26 @@
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.SwingUtilities;
+
+
+public class Main {
+	JFrame jf;
+	JButton b1;
+	public Main(){
+		jf=new JFrame("Задачи ИСО");
+		jf.setSize(800, 600);
+		jf.setResizable(false);
+		jf.setVisible(true);
+		jf.setLocationRelativeTo(null);
+		//jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public static void main(String[] args) {
+		SwingUtilities.invokeLater(new Runnable(){
+			public void run(){
+				new Main();
+			}
+		});
+	}
+
+}

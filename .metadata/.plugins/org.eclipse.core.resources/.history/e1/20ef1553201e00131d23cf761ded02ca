@@ -1,0 +1,40 @@
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
+public class Alphabet {
+	private Map<Integer, String> alphabet = new TreeMap<Integer, String>();
+
+	public Alphabet() {
+		for (int i = (int) 'А'; i <= (int) 'Я'; i++) {
+			char V = (char) i;
+			String a = V + "";
+			this.alphabet.put(i - (int) 'А' + 1, a);
+		}
+	}
+
+	public Map<Integer, String> getAlphabet() {
+		return this.alphabet;
+	}
+
+	public Integer getKeyByAlphabet(String value) {
+		for (Entry<Integer, String> obj : this.alphabet.entrySet()) {
+			if (obj.getValue().equalsIgnoreCase(value)) {
+				return obj.getKey();
+			}
+		}
+		return -1;
+	}
+	public String getIndexByAlphabet(Integer key) {
+		for (Entry<Integer, String> obj : this.alphabet.entrySet()) {
+			if (obj.getKey().equals(key)) {
+				return obj.getValue();
+			}
+		}
+		return null;
+	}
+
+	public String toString() {
+		return this.alphabet.toString();
+	}
+}

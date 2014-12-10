@@ -1,0 +1,14 @@
+import java.util.Calendar;
+import java.util.Date;
+
+
+public class Record {
+	static Date d=new Date();
+	static Calendar calend=Calendar.getInstance();
+	public static void main(String[] args) {
+		System.out.println(d);
+		System.out.println(calend);
+
+	}
+
+}

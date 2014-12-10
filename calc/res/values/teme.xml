@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="HabraTheme" parent="@android:style/Theme.Black">
+        <item name="android:windowBackground">@color/f1f</item>
+        <item name="android:textColor">#F0E68C</item>
+    </style>
+</resources>
